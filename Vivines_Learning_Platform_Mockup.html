@@ -1,184 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" id="html-root">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivines International — 60-Hour Aviation, Travel & Hospitality Certification</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wgh[...]')
-
-:root{
-  --red:#E5322C;
-  --red-dark:#B8241C;
-  --ink:#181717;
-  --yellow:#FFEF00;
-  --paper:#F6F3EC;
-  --paper2:#ECE7DB;
-  --grey:#5C574F;
-  --line:#D9D3C4;
-  --white:#FFFFFF;
-  --radius:16px;
-  --disp:'Archivo Condensed', 'Noto Sans Devanagari', sans-serif;
-  --body:'Inter', 'Noto Sans Devanagari', sans-serif;
-  --mono:'IBM Plex Mono', monospace;
-}
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--body);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-}
-html[lang="mr"] body{ font-family:'Noto Sans Devanagari', var(--body); }
-img{max-width:100%; display:block;}
-a{color:inherit;}
-.wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
-h1,h2,h3{font-family:var(--disp); letter-spacing:.2px; line-height:1.05;}
-.eyebrow{
-  font-family:var(--mono); text-transform:uppercase; letter-spacing:2.5px;
-  font-size:.72rem; color:var(--red-dark); font-weight:600;
-}
-button{font-family:inherit; cursor:pointer;}
-:focus-visible{outline:3px solid var(--red); outline-offset:2px;}
-@media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important;} }
-
-/* ---------- header ---------- */
-header{
-  position:sticky; top:0; z-index:50; background:rgba(246,243,236,.92); backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
-}
-.nav{display:flex; align-items:center; justify-content:space-between; padding:12px 28px; gap:18px;}
-.brand{display:flex; align-items:center; gap:10px;}
-.brand img{height:34px; width:auto;}
-.nav-links{display:flex; gap:26px; font-size:.92rem; font-weight:600;}
-.nav-links a{text-decoration:none; opacity:.8;}
-.nav-links a:hover{opacity:1; color:var(--red-dark);}
-.nav-right{display:flex; align-items:center; gap:12px;}
-.lang-toggle{
-  border:2px solid var(--ink); background:var(--white); border-radius:999px; padding:5px 6px;
-  display:flex; gap:2px; font-family:var(--mono); font-size:.72rem; font-weight:700;
-}
-.lang-toggle button{
-  border:none; background:transparent; padding:5px 11px; border-radius:999px; color:var(--ink);
-}
-.lang-toggle button.active{background:var(--ink); color:var(--white);}
-.btn{
-  display:inline-flex; align-items:center; gap:8px; border:none; border-radius:10px;
-  font-weight:700; font-size:.88rem; padding:11px 20px; text-decoration:none; white-space:nowrap;
-}
-.btn-primary{background:var(--red); color:var(--white); box-shadow:0 4px 0 var(--red-dark);}
-.btn-primary:hover{transform:translateY(1px); box-shadow:0 3px 0 var(--red-dark);}
-.btn-dark{background:var(--ink); color:var(--white);}
-.btn-ghost{background:transparent; border:2px solid var(--ink); color:var(--ink);}
-@media(max-width:860px){ .nav-links{display:none;} }
-
-/* ---------- ticker ---------- */
-.ticker-shell{background:var(--ink); overflow:hidden; border-bottom:3px solid var(--yellow);} 
-.ticker{display:flex; white-space:nowrap; animation:scroll 32s linear infinite;} 
-.ticker span{ color:var(--yellow); font-family:var(--mono); font-size:.78rem; font-weight:600; padding:9px 34px; border-right:1px solid #3a3735; letter-spacing:.4px; }
-@keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-/* (CSS truncated for brevity in the API payload) */
-</style>
-</head>
-<body>
-
-<header>
-  <div class="nav wrap">
-    <div class="brand">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAxcAAAFoCAYAAAAlywYBAADIwUlEQVR4nOzdd1xUV/o/8M+5ZRpFmlhQiQUVe+9dscduNE1T3CSbskm2fHez3+93N7u/75bsbrLJpveu0dh7F8UKKogFFQVRsSDSp997z++PYRANKu[...]" alt="Vivines logo">
-    </div>
-    <nav class="nav-links">
-      <a href="#dashboard" data-en="Dashboard" data-mr="डॅशबोर्ड">Dashboard</a>
-      <a href="#board" data-en="Modules" data-mr="मॉड्यूल्स">Modules</a>
-      <a href="#softskills" data-en="Soft Skills" data-mr="सॉफ्ट स्किल्स">Soft Skills</a>
-      <a href="#how" data-en="How it Works" data-mr="हे कसे कार्य करते">How it Works</a>
-      <a href="#pricing" data-en="Pricing" data-mr="किंमत">Pricing</a>
-    </nav>
-    <div class="nav-right">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button type="button" class="active" data-setlang="en">EN</button>
-        <button type="button" data-setlang="mr">मराठी</button>
-      </div>
-      <button type="button" class="btn btn-primary" onclick="handleStartFree()" data-en="Start Free" data-mr="मोफत सुरू करा">Start Free</button>
-    </div>
-  </div>
-</header>
-
-<div id="toast" class="toast" hidden aria-live="polite"></div>
-
-<!-- Page content omitted for brevity in this API call; script updated below -->
-
-<script>
-/* ===================== data (preserved) ===================== */
-var AVIATION_WINGS = {'VN-101':0,'VN-102':45,'VN-103':45,'VN-104':54,'VN-105':50,'VN-106':63,'VN-107':50,'VN-108':72,'VN-109':36,'VN-110':45,'VN-111':45,'VN-112':63};
-var SOFTSKILLS = ['SS-1','SS-2','SS-3','SS-4'];
-var SS_CERT_WINGS = 18;
-var SIGNUP_WINGS = 250;
-var MODULE_TITLES = { 'VN-101':'Aviation Fundamentals & Industry','VN-102':'Airport & Airline Operations','VN-103':'Passenger Services & Ground Handling','VN-104':'Cabin Crew, Safety & Emergency (Awareness)','VN-105':'Aviation Hospitality & Customer Experience','VN-106':'Airline Ticketing, GDS & Travel Technology','VN-107':'Travel & Tourism Management','VN-108':'AI, Digital Aviation & Emerging Technologies','VN-109':'Sustainable Aviation & Sustainable Tourism','VN-110':'Spoken English & Professional Communication','VN-111':'Personality Development, Grooming & Employability','VN-112':'Capstone Project, Industry Simulation & Certification','SS-1':'Spoken & Professional English','SS-2':'Grooming & Body Language','SS-3':'CV, LinkedIn & Interview Mastery','SS-4':'Workplace Communication & EQ'};
-
-var STR = { en: { startFree: 'Start Free \u2192', unlock: 'Unlock', wings: 'Wings', markComplete: 'Mark Module Complete (Demo)', certEarned: '\u2713 Certificate earned', notEnough: 'Not enough Wings for this yet \u2014 top up in Pricing (real payments arrive in Phase 2).', enrolled: 'Enrolled! Come back and mark it complete once you\u2019re done.', completeMsg: '\ud83c\udf89 Module complete \u2014 certificate added to your dashboard.', welcome: 'Welcome, ', wingsCredit: '! Demo Wings credit: ', claimCert: 'Claim Certificate \u2014 ', finishFour: 'Finish all four modules first', statusOpen:'BOARDING', statusLocked:'TOKENS', statusEnrolled:'IN PROGRESS', statusDone:'\u2713 DONE', resetMsg: 'Demo data reset.', welcomeBack: 'Welcome back, ', incorrectPass: 'Incorrect passcode.' }, mr: { /* truncated */ } };
-
-var LANG = 'en';
-var STATE = { profile: null, progress: null };
-var PENDING = null;
-var toastTimer = null;
-
-/* ===================== storage helpers ===================== */
-async function kvGet(key, shared){ try{ var res = await window.storage.get(key, !!shared); if(!res || res.value === undefined || res.value === null) return null; return JSON.parse(res.value);}catch(e){return null;} }
-async function kvSet(key, value, shared){ try{ await window.storage.set(key, JSON.stringify(value), !!shared); return true;}catch(e){ console.error('storage set failed', key, e); return false; } }
-async function kvDelete(key, shared){ try{ await window.storage.delete(key, !!shared); }catch(e){} }
-async function kvList(prefix, shared){ try{ var res = await window.storage.list(prefix, !!shared); return (res && res.keys) ? res.keys : []; } catch(e){ return []; } }
-
-/* ===================== toast ===================== */
-function toast(msg, ms){ var el = document.getElementById('toast'); if(!el) return; el.textContent = msg; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(function(){ el.hidden = true; }, ms || 3600); }
-
-/* ===================== language (preserved) ===================== */
-function applyLang(lang){ LANG = lang; document.querySelectorAll('[data-en]').forEach(function(el){ var val = el.getAttribute(lang === 'mr' ? 'data-mr' : 'data-en'); if(val !== null && val !== ''){ el.textContent = val; } }); var root = document.getElementById('html-root'); if(root) root.setAttribute('lang', lang); renderAllRows(); renderDashboard(); }
-document.querySelectorAll('.lang-toggle button').forEach(function(btn){ btn.addEventListener('click', function(){ document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.classList.remove('active'); }); btn.classList.add('active'); applyLang(btn.getAttribute('data-setlang')); }); });
-
-/* ===================== pricing tabs (preserved) */
-document.querySelectorAll('.tab-btn').forEach(function(btn){ btn.addEventListener('click', function(){ var target = btn.getAttribute('data-tab'); document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); }); document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); }); btn.classList.add('active'); document.querySelector('.panel[data-panel="'+target+'"]').classList.add('active'); }); });
-
-/* ===================== module status + row rendering (preserved) */
-function moduleGroup(id){ return id.indexOf('SS') === 0 ? 'softskills' : 'aviation'; }
-function moduleStatus(id){ if(!STATE.progress) return 'locked'; var rec = STATE.progress[moduleGroup(id)] || {}; return rec[id] || 'locked'; }
-function renderRow(id, wingsCost){ var statusEl = document.getElementById('status-'+id); var actionEl = document.getElementById('action-'+id); if(!actionEl) return; var st = moduleStatus(id); var T = STR[LANG]; if(statusEl){ statusEl.classList.remove('open','locked','enrolled','done'); if(st === 'completed'){ statusEl.classList.add('done'); statusEl.textContent = T.statusDone; } else if(st === 'enrolled'){ statusEl.classList.add('enrolled'); statusEl.textContent = T.statusEnrolled; } else if(wingsCost === 0){ statusEl.classList.add('open'); statusEl.textContent = T.statusOpen; } else { statusEl.classList.add('locked'); statusEl.textContent = T.statusLocked; } } actionEl.innerHTML = ''; if(st === 'completed'){ var span = document.createElement('span'); span.className = 'rowmsg ok'; span.textContent = T.certEarned; actionEl.appendChild(span); } else if(st === 'enrolled'){ var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'btn btn-dark'; btn.textContent = T.markComplete; btn.onclick = function(){ completeModule(id); }; actionEl.appendChild(btn); } else { var btn2 = document.createElement('button'); btn2.type = 'button'; btn2.className = 'btn btn-primary'; btn2.textContent = wingsCost === 0 ? T.startFree : (T.unlock + ' \u2014 ' + wingsCost + ' ' + T.wings); btn2.onclick = function(){ enroll(id, wingsCost); }; actionEl.appendChild(btn2); } }
-
-function renderSoftSkillsCert(){ var el = document.getElementById('action-SS-CERT'); if(!el) return; var T = STR[LANG]; var allDone = SOFTSKILLS.every(function(id){ return moduleStatus(id) === 'completed'; }); var already = STATE.progress && (STATE.progress.certificates || []).some(function(c){ return c.id === 'SS-CERT'; }); el.innerHTML = ''; if(already){ var span = document.createElement('span'); span.className = 'rowmsg ok'; span.textContent = T.certEarned; el.appendChild(span); } else if(allDone){ var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'btn btn-primary'; btn.textContent = T.claimCert + SS_CERT_WINGS + ' ' + T.wings; btn.onclick = claimSoftSkillsCertificate; el.appendChild(btn); } else { var span2 = document.createElement('span'); span2.className = 'rowmsg'; span2.textContent = T.finishFour; el.appendChild(span2); } }
-function renderAllRows(){ Object.keys(AVIATION_WINGS).forEach(function(id){ renderRow(id, AVIATION_WINGS[id]); }); SOFTSKILLS.forEach(function(id){ renderRow(id, 0); }); renderSoftSkillsCert(); }
-
-/* ===================== dashboard rendering (preserved) */
-function renderDashboard(){ var loggedOut = document.getElementById('dashLoggedOut'); var loggedIn = document.getElementById('dashLoggedIn'); if(!loggedOut || !loggedIn) return; if(!STATE.profile){ loggedOut.hidden = false; loggedIn.hidden = true; return; } loggedOut.hidden = true; loggedIn.hidden = false; document.getElementById('dashName').textContent = STR[LANG].welcomeBack + STATE.profile.name; document.getElementById('dashEmail').textContent = STATE.profile.email; document.getElementById('dashWings').textContent = STATE.progress.wings; var avDone = Object.keys(STATE.progress.aviation || {}).filter(function(k){ return STATE.progress.aviation[k] === 'completed'; }).length; var ssDone = Object.keys(STATE.progress.softskills || {}).filter(function(k){ return STATE.progress.softskills[k] === 'completed'; }).length; document.getElementById('dashAvNum').textContent = avDone + '/12'; document.getElementById('dashSsNum').textContent = ssDone + '/4'; var avPct = Math.round((avDone/12)*100); var ssPct = Math.round((ssDone/4)*100); document.getElementById('dashAvFill').style.width = avPct + '%'; document.getElementById('dashSsFill').style.width = ssPct + '%'; // render certs
- var cg = document.getElementById('dashCerts'); if(cg){ cg.innerHTML = ''; (STATE.progress.certificates || []).forEach(function(c){ var d = document.createElement('div'); d.className = 'cert-mini'; d.innerHTML = '<div class="t">CERT</div><div class="n">'+(c.title||c.id)+'</div><div class="d">'+(new Date(c.issuedAt).toLocaleDateString())+'</div>'; cg.appendChild(d); }); } }
-
-/* ---------- persistence & admin logging ---------- */
-async function saveStateForProfile(){ if(!STATE.profile) return false; var key = 'state:' + STATE.profile.id; await kvSet(key, STATE, true); return true; }
-async function loadStateForProfile(){ if(!STATE.profile) return false; var key = 'state:' + STATE.profile.id; var s = await kvGet(key, true); if(s) STATE = s; renderAllRows(); renderDashboard(); return true; }
-async function logEvent(type, payload){ try{ var ts = new Date().toISOString(); var entry = { id: 'log-' + ts + '-' + Math.random().toString(36).slice(2,8), ts: ts, type: type, profile: STATE.profile ? {id: STATE.profile.id, email: STATE.profile.email, name: STATE.profile.name} : null, payload: payload || {} }; await kvSet('log:' + entry.id, entry, true); return entry; }catch(e){ console.error('logEvent failed', e); return null; } }
-
-/* ---------- profile modal ---------- */
-function openProfileModal(prefill){ var overlay = document.createElement('div'); overlay.className = 'modal-overlay'; overlay.innerHTML = '<div class="modal-card" role="dialog" aria-modal="true">' + '<button class="modal-close" title="Close">&times;</button>' + '<h3>Create your free profile</h3>' + '<div class="field"><span>Name</span><input id="pf-name" type="text" placeholder="Your name" /></div>' + '<div class="field"><span>Email</span><input id="pf-email" type="email" placeholder="name@example.com" /></div>' + '<div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">' + '<button id="pf-cancel" class="btn btn-ghost">Cancel</button>' + '<button id="pf-save" class="btn btn-primary">Create profile</button>' + '</div></div>'; document.body.appendChild(overlay); overlay.querySelector('.modal-close').addEventListener('click', function(){ overlay.remove(); }); overlay.querySelector('#pf-cancel').addEventListener('click', function(){ overlay.remove(); }); var nameInput = overlay.querySelector('#pf-name'); var emailInput = overlay.querySelector('#pf-email'); if(prefill){ if(prefill.name) nameInput.value = prefill.name; if(prefill.email) emailInput.value = prefill.email; } overlay.querySelector('#pf-save').addEventListener('click', async function(){ var name = nameInput.value && nameInput.value.trim(); var email = emailInput.value && emailInput.value.trim(); if(!name || !email){ toast('Please enter name and email', 2500); return; } STATE.profile = { id: 'user-' + Date.now(), name: name, email: email }; STATE.progress = { aviation: {}, softskills: {}, wings: SIGNUP_WINGS, certificates: [] }; await saveStateForProfile(); await logEvent('signup', { method: 'demo', email: email }); overlay.remove(); renderAllRows(); renderDashboard(); toast(STR[LANG].welcome + name + STR[LANG].wingsCredit + SIGNUP_WINGS, 4500); }); }
-
-/* ---------- user flow helpers ---------- */
-async function handleStartFree(){ if(!STATE.profile){ openProfileModal(null); return; } enroll('VN-101', AVIATION_WINGS['VN-101']); }
-async function enroll(id, wingsCost){ if(!STATE.profile){ handleStartFree(); return; } var group = moduleGroup(id); STATE.progress = STATE.progress || { aviation: {}, softskills: {}, wings: SIGNUP_WINGS, certificates: [] }; STATE.progress[group] = STATE.progress[group] || {}; if(wingsCost > 0 && (STATE.progress.wings || 0) < wingsCost){ toast(STR[LANG].notEnough, 4000); return; } if(wingsCost > 0){ STATE.progress.wings = (STATE.progress.wings || 0) - wingsCost; await logEvent('purchase', { module: id, wings: wingsCost }); } else { STATE.progress.wings = STATE.progress.wings || SIGNUP_WINGS; } STATE.progress[group][id] = 'enrolled'; await saveStateForProfile(); renderAllRows(); renderDashboard(); toast(STR[LANG].enrolled, 3500); await logEvent('enroll', { module: id, cost: wingsCost }); }
-async function completeModule(id){ if(!STATE.profile){ handleStartFree(); return; } var group = moduleGroup(id); STATE.progress[group] = STATE.progress[group] || {}; STATE.progress[group][id] = 'completed'; STATE.progress.certificates = STATE.progress.certificates || []; var cert = { id: id + '-CERT-' + Date.now(), module: id, title: MODULE_TITLES[id] || id, issuedAt: new Date().toISOString() }; STATE.progress.certificates.push(cert); await saveStateForProfile(); renderAllRows(); renderDashboard(); await logEvent('complete', { module: id, certId: cert.id }); toast(STR[LANG].completeMsg, 4000); }
-async function claimSoftSkillsCertificate(){ if(!STATE.profile){ handleStartFree(); return; } STATE.progress = STATE.progress || { aviation:{}, softskills:{}, wings: SIGNUP_WINGS, certificates: [] }; var allDone = SOFTSKILLS.every(function(id){ return STATE.progress.softskills && STATE.progress.softskills[id] === 'completed'; }); if(!allDone){ toast(STR[LANG].finishFour, 3000); return; } if((STATE.progress.wings || 0) < SS_CERT_WINGS){ toast(STR[LANG].notEnough, 3500); return; } STATE.progress.wings -= SS_CERT_WINGS; var cert = { id: 'SS-CERT-' + Date.now(), module: 'SS-CERT', title: 'Soft Skills Combined Certificate', issuedAt: new Date().toISOString() }; STATE.progress.certificates = STATE.progress.certificates || []; STATE.progress.certificates.push(cert); await saveStateForProfile(); renderAllRows(); renderDashboard(); await logEvent('claim_ss_cert', { cost: SS_CERT_WINGS, certId: cert.id }); toast(STR[LANG].completeMsg, 3500); }
-async function resetDemoProfile(){ if(!STATE.profile) return; STATE.progress = { aviation: {}, softskills: {}, wings: SIGNUP_WINGS, certificates: [] }; await saveStateForProfile(); renderAllRows(); renderDashboard(); await logEvent('reset_demo', {}); toast(STR[LANG].resetMsg, 2500); }
-
-/* ---------- admin UI: openAdmin reads logs and shows a simple modal ---------- */
-async function openAdmin(){ var keys = await kvList('log:', true); var logs = []; for(var i=0;i<keys.length;i++){ var k = keys[i].name || keys[i]; try{ var rec = await kvGet(k, true); if(rec) logs.push(rec); }catch(e){} } logs = logs.sort(function(a,b){ return a.ts < b.ts ? 1 : -1; }); var html = '<div style="max-height:60vh;overflow:auto;padding:12px;">'; html += '<h3>Admin Log (' + logs.length + ')</h3>'; html += '<table style="width:100%;border-collapse:collapse;"><thead><tr><th style="text-align:left">TS</th><th style="text-align:left">Type</th><th style="text-align:left">Profile</th><th style="text-align:left">Payload</th></tr></thead><tbody>'; logs.forEach(function(l){ html += '<tr><td style="vertical-align:top;padding:6px;border-bottom:1px solid #ddd;">' + (l.ts||'') + '</td>'; html += '<td style="vertical-align:top;padding:6px;border-bottom:1px solid #ddd;">' + (l.type||'') + '</td>'; var p = l.profile ? (l.profile.email || l.profile.id) : ''; html += '<td style="vertical-align:top;padding:6px;border-bottom:1px solid #ddd;">' + p + '</td>'; html += '<td style="vertical-align:top;padding:6px;border-bottom:1px solid #ddd;"><pre style="white-space:pre-wrap;">' + JSON.stringify(l.payload||{}, null, 2) + '</pre></td></tr>'; }); html += '</tbody></table></div>'; var overlay = document.createElement('div'); overlay.className = 'modal-overlay'; overlay.innerHTML = '<div class="modal-card" role="dialog" aria-modal="true">' + '<button class="modal-close">&times;</button>' + html + '</div>'; document.body.appendChild(overlay); overlay.querySelector('.modal-close').addEventListener('click', function(){ overlay.remove(); }); }
-
-/* ---------- boot: try loading profile state on startup and apply language ---------- */
-window.addEventListener('load', async function(){ try{ var last = await kvGet('lastProfile', false); if(last && last.id){ STATE.profile = last; await loadStateForProfile(); } }catch(e){} applyLang(LANG); });
-
-async function _saveLastProfile(){ if(STATE.profile) await kvSet('lastProfile', STATE.profile, false); }
-var _oldSave = saveStateForProfile;
-saveStateForProfile = async function(){ var ok = await _oldSave(); await _saveLastProfile(); return ok; };
-
-</script>
-</body>
-</html>
+*** Begin Patch
+*** Update File: Vivines_Learning_Platform_Mockup.html
+@@
+-async function kvGet(key, shared){ try{ var res = await window.storage.get(key, !!shared); if(!res || res.value === undefined || res.value === null) return null; return JSON.parse(res.value);}cat[...]
+-async function kvSet(key, value, shared){ try{ await window.storage.set(key, JSON.stringify(value), !!shared); return true;}catch(e){ console.error('storage set failed', key, e); return false; } [...]
+-async function kvDelete(key, shared){ try{ await window.storage.delete(key, !!shared); }catch(e){} }
+-async function kvList(prefix, shared){ try{ var res = await window.storage.list(prefix, !!shared); return (res && res.keys) ? res.keys : []; } catch(e){ return []; } }
++// Storage helpers with localStorage fallback for GitHub Pages / plain browsers.
++async function kvGet(key, shared){
++  try{
++    if(window.storage && window.storage.get){
++      var res = await window.storage.get(key, !!shared);
++      if(!res || res.value === undefined || res.value === null) return null;
++      return JSON.parse(res.value);
++    }
++    // fallback to localStorage
++    var v = localStorage.getItem(key);
++    if(!v) return null;
++    return JSON.parse(v);
++  }catch(e){ return null; }
++}
++async function kvSet(key, value, shared){
++  try{
++    if(window.storage && window.storage.set){
++      await window.storage.set(key, JSON.stringify(value), !!shared);
++      return true;
++    }
++    localStorage.setItem(key, JSON.stringify(value));
++    return true;
++  }catch(e){ console.error('storage set failed', key, e); return false; }
++}
++async function kvDelete(key, shared){
++  try{ if(window.storage && window.storage.delete){ await window.storage.delete(key, !!shared); return; } localStorage.removeItem(key); }catch(e){}
++}
++async function kvList(prefix, shared){
++  try{
++    if(window.storage && window.storage.list){ var res = await window.storage.list(prefix, !!shared); return (res && res.keys) ? res.keys : []; }
++    // localStorage fallback: return matching keys as [{name:key}, ...] to match earlier shape
++    var out = [];
++    for(var i=0;i<localStorage.length;i++){ var k = localStorage.key(i); if(k && k.indexOf(prefix) === 0) out.push({ name: k }); }
++    return out;
++  } catch(e){ return []; }
++}
+*** End Patch
